@@ -2,6 +2,13 @@
 
 public class ProductModel
 {
+    public ProductModel()
+    {
+        Id = 0;
+        Name = string.Empty;
+        Price = 0;
+    }
+
     public long Id { get; set; }
 
     public required string Name { get; set; }

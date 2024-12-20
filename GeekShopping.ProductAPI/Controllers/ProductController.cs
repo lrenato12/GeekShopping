@@ -37,8 +37,7 @@ public class ProductController : ControllerBase
 
     [HttpPost]
     public async Task<ActionResult<ProductVO>> Create(ProductVO requestModel)
-    {
-        
+    {        
         if(requestModel == null) return BadRequest();
 
         var product = await _productRepository.Create(requestModel);
@@ -49,7 +48,6 @@ public class ProductController : ControllerBase
     [HttpPut]
     public async Task<ActionResult<ProductVO>> Update(ProductVO requestModel)
     {
-
         if (requestModel == null) return BadRequest();
 
         var product = await _productRepository.Update(requestModel);

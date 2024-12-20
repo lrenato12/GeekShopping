@@ -17,6 +17,14 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "GeekShopping.ProductAPI", Version = "v1" });
 });
 
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenLocalhost(5157, listenOptions =>
+    {
+        listenOptions.UseHttps();
+    });
+});
+
 var connection = builder.Configuration["MySQLConnection:MySQLConnectionString"];
 
 builder.Services.AddDbContext<MySQLContext>(option => option.UseMySql(connection, new MySqlServerVersion(new Version())));
